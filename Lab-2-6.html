@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-2-6</title>
+</head>
+<body>
+<script type="text/javascript">
+	n = parseInt(prompt("Enter a number (0-999) "));
+	if(n<0 || n>999){
+		alert("out of range");
+	}
+	if(isNaN(n)){
+		alert("not a number");
+	}
+	a = ["One Hundred","Two Hundred","Three Hundred","Four Hundred","Five Hundred","Six Hundred","Seven Hundred","Eight Hundred","Nine Hundred"];
+	b = ["Ten","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"];
+	c = ["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"];
+	s = "";
+	if(n>=100){
+		s += a[parseInt(n/100)-1]+" ";
+		n = parseInt(n%100);
+	}
+	if(n>=10){
+		s += b[parseInt(n/10)-1]+" ";
+		n = parseInt(n%10);
+	}
+	if(n>=0){
+		s += c[parseInt(n)]+" ";
+		n = parseInt();
+	}
+	alert("Word = "+s);
+</script>
+</body>
+</html>
