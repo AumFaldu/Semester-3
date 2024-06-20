@@ -14,6 +14,7 @@ public class Lab_3_17{
 			for(int j=i+1;j<n;j++){
 				if(arr[i] == arr[j]){
 					flag = true;
+					break;
 				}
 			}
 		}
