@@ -21,7 +21,7 @@ public class Lab_4_22{
 				next[i] = prev[j];
 			}
 		}
-		System.out.println("After insertion : ");
+		System.out.println("After deletion : ");
 		for(int i=0;i<next.length;i++){
 			System.out.println("Value of arr["+i+"] : "+next[i]);
 		}
