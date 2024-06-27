@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Lab_6_37 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        BankAccount[] accounts = new BankAccount[10]; // Array to store 10 bank accounts
+        System.out.print("Enter total number of bank accounts");
+        int n = sc.nextInt();
+        BankAccount[] accounts = new BankAccount[n];
         int accountCount = 0;
 
         while (true) {
@@ -13,7 +15,7 @@ public class Lab_6_37 {
 
             switch (choice) {
                 case 1:
-                    if (accountCount < 10) {
+                    if (accountCount < n) {
                         BankAccount b = new BankAccount();
                         System.out.print("Enter account number: ");
                         b.setAccountNumber(sc.nextInt());
