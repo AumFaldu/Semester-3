@@ -6,7 +6,7 @@ public class Lab_7_41 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter total number of test cases: ");
         int n = sc.nextInt();
-        sc.nextLine(); // Consume the newline character
+        sc.nextLine();
         String[] s = new String[n];
         for (int i = 0; i < n; i++) {
             s[i] = sc.nextLine();
