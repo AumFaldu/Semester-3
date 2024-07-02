@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lab-6-9</title>
 </head>
-<body id="bg">
+<body>
 <script type="text/javascript">
 	var input;
 	document.addEventListener('keypress',(event) =>{
@@ -15,11 +15,11 @@
 		}
 	});
 	document.addEventListener('keyup',() =>{
-		if(document.getElementById('bg').style.backgroundColor == "blue"){
-			document.getElementById('bg').style.backgroundColor = "white";
+		if(document.body.style.backgroundColor == "blue"){
+			document.body.style.backgroundColor = "white";
 		}
 		else{
-			document.getElementById('bg').style.backgroundColor = "blue";
+			document.body.style.backgroundColor = "blue";
 		}
 	})
 </script>
