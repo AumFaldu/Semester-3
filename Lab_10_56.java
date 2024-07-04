@@ -22,7 +22,6 @@ class Node{
 		this.info = info;
 		this.link = null;
 	}
-	public Node first=null;
 }
 class LinkedList{
 	Node first = null;
