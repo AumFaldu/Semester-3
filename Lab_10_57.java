@@ -35,9 +35,9 @@ public class Lab_10_57{
 					li.deleteAtLast();
 				break; 
 				case "6":
-					System.out.print("Enter the position of node that you want to delete : ");
-					int index = sc.nextInt();
-					li.deleteAtSpecific(index);
+					System.out.print("Enter the value of node that you want to delete : ");
+					data = sc.nextInt();
+					li.deleteAtSpecific(data);
 				break;
 				case "-1":
 					System.out.println("Exiting the loop");
@@ -107,28 +107,28 @@ class LinkedList{
 			current.link = null;
 		}
 	}
-	public void deleteAtSpecific(int index){
+	public void deleteAtSpecific(int data){
 		if (first == null) {
             System.out.println("Cannot be deleted as LinkedList is empty");
             return;
         }
 
-        if (index == 0) {
+        if (first.data == data) {
             deleteAtFirst();
             return;
         }
 
         Node current = first;
-        for (int i = 0; i < index - 2; i++) {
+        while(current.link.data != data) {
             if (current.link == null) {
-                System.out.println("Cannot be deleted as index entered is out of range");
+                System.out.println("Cannot be deleted as value is not inside the node");
                 return;
-            }
+           }
             current = current.link;
         }
 
         if (current.link == null) {
-            System.out.println("Cannot be deleted as index entered is out of range");
+            System.out.println("Cannot be deleted as value entered is not inside the node");
         } else {
             current.link = current.link.link;
         }
