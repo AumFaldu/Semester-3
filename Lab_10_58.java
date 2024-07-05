@@ -26,12 +26,14 @@ class LinkedList{
 	int count=0;
 	public void addNode(int data){
 		Node newNode = new Node(data);
+			Node last = first;
 		if(first == null){
 			first = newNode;
+			last = first;
 		}
 		else{
 			Node temp = first;
-			while(temp.link!=null){
+			while(temp.link!=last.link){
 				temp = temp.link;
 			}
 			temp.link = newNode;
