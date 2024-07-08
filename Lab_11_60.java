@@ -164,11 +164,16 @@ class Stack {
     }
 
     public void display() {
+        if(first == null){
+            System.out.println("Stack is empty");
+        }
+        else{
         Node temp = first;
         while (temp != null) {
             System.out.print(temp.data + " ");
             temp = temp.link;
         }
         System.out.println();
+        }
     }
 }
