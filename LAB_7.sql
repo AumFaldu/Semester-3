@@ -57,3 +57,51 @@ SELECT MIN(SALARY) FROM EMP
 WHERE CITY='AHMEDABAD';
 
 --12 Find city wise highest salary
+SELECT CITY,MAX(SALARY) FROM EMP
+GROUP BY CITY;
+
+--13 Find department wise lowest salary
+SELECT DEPARTMENT,MIN(SALARY) FROM EMP
+GROUP BY DEPARTMENT;
+
+--14 Display city with the total number of employees belonging to each city.
+SELECT CITY,COUNT(*) FROM EMP
+GROUP BY CITY;
+
+--15 Give total salary of each department of EMP table.
+SELECT DEPARTMENT,SUM(SALARY) FROM EMP
+GROUP BY DEPARTMENT;
+
+--16 Give average salary of each department of EMP table without displaying the respective department name.
+SELECT AVG(SALARY) FROM EMP
+GROUP BY DEPARTMENT;
+
+--PART-B
+--1 Count the number of employees living in Rajkot.
+SELECT COUNT(*) FROM EMP
+WHERE CITY='RAJKOT';
+
+--2 Display the difference between the highest and lowest salaries. Label the column DIFFERENCE
+SELECT MAX(SALARY)-MIN(SALARY) AS DIFFERENCE FROM EMP;
+
+--3 Display the total number of employees hired before 1st January, 1991.
+SELECT COUNT(*) FROM EMP
+WHERE JOININGDATE<'1991-01-01';
+
+--PART-C
+--1 Count the number of employees living in Rajkot or Baroda.
+SELECT COUNT(*) FROM EMP
+WHERE CITY IN ('RAJKOT','BARODA');
+
+--2 Display the total number of employees hired before 1st January, 1991 in IT department.
+SELECT COUNT(*) FROM EMP
+WHERE JOININGDATE<'1991-01-01' AND DEPARTMENT='IT';
+
+--3 Find the Joining Date wise Total Salaries.
+SELECT JOININGDATE,SUM(SALARY) FROM EMP
+GROUP BY JOININGDATE;
+
+--4 Find the Maximum salary department & city wise in which city name starts with ‘R’.
+SELECT DEPARTMENT,CITY,MAX(SALARY) FROM EMP
+WHERE CITY LIKE 'R%'
+GROUP BY DEPARTMENT,CITY;
