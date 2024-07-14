@@ -27,6 +27,15 @@
             let answer = document.getElementById('answer');
             let temp = "";
             temp += "<table class='table table-responsive table-info' border='1'>";
+            temp += "<thead>";
+            temp += "<tr>";
+            temp += "<th>Status</th>";
+            temp += "<th>Task No.</th>";
+            temp += "<th>Task List</th>";
+            temp += "<th>Cancel</th>";
+            temp += "</tr>";
+            temp += "</thead>";
+            temp += "<tbody>";
             for(let i in arr) {
                 temp += "<tr>";
                 temp += "<td><input class='btn-check' type='checkbox' autocomplete='off' id='btncheck" + i + "' /><label class='btn btn-outline-success' for='btncheck" + i + "'>Done</label></td>";
@@ -35,6 +44,7 @@
                 temp += "<td><button class='btn btn-outline-danger' onclick='del(" + i + ")'>Delete</button></td>";
                 temp += "</tr>";
             }
+            temp += "</tbody>";
             temp += "</table>";
             answer.innerHTML = temp;
         }
@@ -50,7 +60,10 @@
         }
 
         function del(index) {
+            text = "Are you sure you want to delete";
+            if(confirm(text) == true){
             arr.splice(index, 1);
+            }
             display();
         }
     </script>
