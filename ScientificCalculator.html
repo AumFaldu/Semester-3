@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scientific Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form onsubmit="return false">
+    <div>
+        <input type="text" style="text-align: right;" class="form-input" name="AnswerPanel" id="answer" readonly>
+        <div class="mt-3">
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('0')">0</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('1')">1</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('2')">2</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('3')">3</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('4')">4</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('5')">5</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('6')">6</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('7')">7</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('8')">8</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('9')">9</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('+')">+</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('-')">-</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('*')">*</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('/')">/</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('.')">.</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.sin(')">sin</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.cos(')">cos</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.tan(')">tan</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.log(')">log</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.log2(')">log2</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.log10(')">log10</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.exp(')">exp</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.sqrt(')">sqrt</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.pow(')">pow</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.abs(')">abs</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.ceil(')">ceil</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.floor(')">floor</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark" onclick="display('Math.random()')">rand</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display('(')">(</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display(')')">)</button>
+                <button type="button" class="btn btn-outline-dark" onclick="display(',')">,</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-danger" onclick="allClear()">AC</button>
+                <button type="button" class="btn btn-outline-warning" onclick="cls()">C</button>
+                <button type="button" class="btn btn-outline-info" onclick="ans()">=</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    const answer = document.getElementById("answer");
+
+    function display(value) {
+        answer.value += value;
+    }
+
+    function ans() {
+        try {
+            answer.value = eval(answer.value);
+        } catch (e) {
+            answer.value = "Error";
+        }
+    }
+
+    function cls() {
+        answer.value = answer.value.slice(0, -1);
+    }
+
+    function allClear() {
+        answer.value = "";
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
