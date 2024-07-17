@@ -5,4 +5,4 @@ console.log(path.normalize('C:\\Users\\student\\Desktop\\NodeProject\\Lab-17-2.j
 console.log(path.join('/foo','bar','abc'));
 console.log(path.resolve('abc','xyz'));
 console.log(path.relative('/foo/bar','/foo/abc'));
-console.log(path.extname('path'));
+console.log(path.extname('Lab-17-2.js'));
