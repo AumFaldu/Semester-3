@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class Lab_13_76 {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter degree of first polynomial: ");
         int degree1 = sc.nextInt();
         System.out.println("Enter coefficients for the first polynomial: ");
         LinkedList li1 = new LinkedList();
-        for (int i = 0; i <= degree1; i++) {
+        for (int i = degree1; i >= 0; i--) {
             System.out.print("Enter coefficient of x^" + i + ": ");
             int data = sc.nextInt();
             li1.addNode(data);
@@ -16,7 +16,7 @@ public class Lab_13_76 {
         int degree2 = sc.nextInt();
         System.out.println("Enter coefficients for the second polynomial: ");
         LinkedList li2 = new LinkedList();
-        for (int i = 0; i <= degree2; i++) {
+        for (int i = degree2; i >= 0; i--) {
             System.out.print("Enter coefficient of x^" + i + ": ");
             int data = sc.nextInt();
             li2.addNode(data);
@@ -24,13 +24,18 @@ public class Lab_13_76 {
         LinkedList li = add(li1, li2);
         Node temp = li.first;
         System.out.println("The sum of the polynomials is: ");
-        int deg = 0;
+        int deg = Math.max(degree1,degree2);
         while (temp != null) {
+            if(deg==0){
+                System.out.print(temp.data);
+            }
+            else{
             System.out.print(temp.data + "x^" + deg);
             if (temp.link != null) {
                 System.out.print(" + ");
             }
-            deg++;
+            deg--;
+            }
             temp = temp.link;
         }
         System.out.println();
