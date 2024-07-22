@@ -5,8 +5,6 @@ public class Lab_13_75 {
         Scanner sc = new Scanner(System.in);
         String data = "";
         LinkedList li = new LinkedList();
-        
-        // Input loop to add music to the linked list
         while(true) {
             System.out.println("Enter music (enter '-1' to stop adding music): ");
             data = sc.nextLine();
@@ -16,7 +14,6 @@ public class Lab_13_75 {
         }
         
         String choice = "";
-        // Menu-driven loop for music player operations
         while(!choice.equals("-1")) {
             System.out.println("Enter 1 to play the music : ");
             System.out.println("Enter 2 to go to prev : ");
