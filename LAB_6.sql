@@ -71,4 +71,89 @@ INSERT INTO EMP_MASTER(EmpNo,EmpName,JoiningDate,Salary,Commission,City,DeptCode
 --1 Display the result of Salary plus Commission.
 SELECT SALARY+COMMISSION AS RESULT FROM EMP_MASTER;
 
---2 Find smallest integer value that is greater than or equal to 55.2, 35.7 and -55.2.SELECT CEILING(55.2),CEILING(35.7),CEILING(-55.2);--3 Find largest integer value that is smaller than or equal to 55.2, 35.7 and -55.2SELECT FLOOR(55.2),FLOOR(35.7),FLOOR(-55.2);--4 Find out remainder of 55 divided 2 and 55 divided by 3.SELECT 55 % 2,55 % 3;--5 Find out value of 23 raised to 2nd power and 14 raised 3rd power.SELECT POWER(23,2),POWER(14,3);--PART-C--1 Find out the square root of 36, 49 and 81SELECT SQRT(36),SQRT(49),SQRT(81);--2 Find out the square of 3, 9, and 12.SELECT SQUARE(3),SQUARE(9),SQUARE(12);--3 Find out round value of 280.8952 for 2, 0 and -2 decimal pointsSELECT ROUND(280.8952,2),ROUND(280.8952,0),ROUND(280.8952,-2);--4 Find sine, cosine and tangent of 4.2014.SELECT SIN(4.2014),COS(4.2014),TAN(4.2014);--5 Find sign of -55, 0 and 95.SELECT SIGN(-55),SIGN(0),SIGN(95);--String functions--PART-A--1 Find the length of following. (I) NULL (II) ë hello í (III) Blank--(I)SELECT LEN(NULL);--(II)SELECT LEN('hello');--(III)SELECT LEN('');--2 Display your name in lower & upper case.SELECT LOWER('AumFaldu'),UPPER('AumFaldu');--3 Display first three characters of your name.SELECT SUBSTRING('AumFaldu',0,4);--4 Display 3rd to 10th character of your name.SELECT SUBSTRING('AumBhaiFaldu',3,8);--5 Write a query to convert ëabc123efgí to ëabcXYZefgí & ëabcabcabcí to ëab5ab5ab5í using REPLACE.SELECT REPLACE('abc123efg','123','XYZ'),REPLACE('abcabcabc','c','5');--6 Write a query to display ASCII code for ëaí,íAí,ízí,íZí, 0, 9.SELECT ASCII('a'),ASCII('A'),ASCII('z'),ASCII('Z'),ASCII('0'),ASCII('9');--7 Write a query to display character based on number 97, 65,122,90,48,57SELECT CHAR(97),CHAR(65),CHAR(122),CHAR(90),CHAR(48),CHAR(57);--8 Write a query to remove spaces from left of a given string ëhello world ëSELECT LTRIM('hello world ');--9 Write a query to remove spaces from right of a given string ë hello world ëSELECT RTRIM(' hello world ');--10 Write a query to display first 4 & Last 5 characters of ëSQL ServeríSELECT LEFT('SQL Server',4)+RIGHT('SQL Server',5);--11 Write a query to convert a string ë1234.56í to number (Use cast and convert function).SELECT CAST(1234.56 AS INT);SELECT CONVERT(INT,1234.56);--12 Write a query to convert a float 10.58 to integer (Use cast and convert function).SELECT CAST(10.58 AS INT);SELECT CONVERT(INT,10.58);--13 Put 10 space before your name using functionSELECT SPACE(10)+'AumFaldu';--14 Combine two strings using + sign as well as CONCAT ().SELECT 'Aum'+'Faldu';SELECT CONCAT('Aum','Faldu');--15 Find reverse of ìDarshanî.SELECT REVERSE('Darshan');--16 Repeat your name 3 timesSELECT REPLICATE('AumFaldu',3);
+--2 Find smallest integer value that is greater than or equal to 55.2, 35.7 and -55.2.
+SELECT CEILING(55.2),CEILING(35.7),CEILING(-55.2);
+
+--3 Find largest integer value that is smaller than or equal to 55.2, 35.7 and -55.2
+SELECT FLOOR(55.2),FLOOR(35.7),FLOOR(-55.2);
+
+--4 Find out remainder of 55 divided 2 and 55 divided by 3.
+SELECT 55 % 2,55 % 3;
+
+--5 Find out value of 23 raised to 2nd power and 14 raised 3rd power.
+SELECT POWER(23,2),POWER(14,3);
+
+--PART-C
+
+--1 Find out the square root of 36, 49 and 81
+SELECT SQRT(36),SQRT(49),SQRT(81);
+
+--2 Find out the square of 3, 9, and 12.
+SELECT SQUARE(3),SQUARE(9),SQUARE(12);
+
+--3 Find out round value of 280.8952 for 2, 0 and -2 decimal points
+SELECT ROUND(280.8952,2),ROUND(280.8952,0),ROUND(280.8952,-2);
+
+--4 Find sine, cosine and tangent of 4.2014.
+SELECT SIN(4.2014),COS(4.2014),TAN(4.2014);
+
+--5 Find sign of -55, 0 and 95.
+SELECT SIGN(-55),SIGN(0),SIGN(95);
+
+--String functions
+--PART-A
+--1 Find the length of following. (I) NULL (II) ‚Äò hello ‚Äô (III) Blank
+--(I)
+SELECT LEN(NULL);
+--(II)
+SELECT LEN('hello');
+--(III)
+SELECT LEN('');
+
+--2 Display your name in lower & upper case.
+SELECT LOWER('AumFaldu'),UPPER('AumFaldu');
+
+--3 Display first three characters of your name.
+SELECT SUBSTRING('AumFaldu',0,4);
+
+--4 Display 3rd to 10th character of your name.
+SELECT SUBSTRING('AumBhaiFaldu',3,8);
+
+--5 Write a query to convert ‚Äòabc123efg‚Äô to ‚ÄòabcXYZefg‚Äô & ‚Äòabcabcabc‚Äô to ‚Äòab5ab5ab5‚Äô using REPLACE.
+SELECT REPLACE('abc123efg','123','XYZ'),REPLACE('abcabcabc','c','5');
+
+--6 Write a query to display ASCII code for ‚Äòa‚Äô,‚ÄôA‚Äô,‚Äôz‚Äô,‚ÄôZ‚Äô, 0, 9.
+SELECT ASCII('a'),ASCII('A'),ASCII('z'),ASCII('Z'),ASCII('0'),ASCII('9');
+
+--7 Write a query to display character based on number 97, 65,122,90,48,57
+SELECT CHAR(97),CHAR(65),CHAR(122),CHAR(90),CHAR(48),CHAR(57);
+
+--8 Write a query to remove spaces from left of a given string ‚Äòhello world ‚Äò
+SELECT LTRIM('hello world ');
+
+--9 Write a query to remove spaces from right of a given string ‚Äò hello world ‚Äò
+SELECT RTRIM(' hello world ');
+
+--10 Write a query to display first 4 & Last 5 characters of ‚ÄòSQL Server‚Äô
+SELECT LEFT('SQL Server',4)+RIGHT('SQL Server',5);
+
+--11 Write a query to convert a string ‚Äò1234.56‚Äô to number (Use cast and convert function).
+SELECT CAST(1234.56 AS INT);
+SELECT CONVERT(INT,1234.56);
+
+--12 Write a query to convert a float 10.58 to integer (Use cast and convert function).
+SELECT CAST(10.58 AS INT);
+SELECT CONVERT(INT,10.58);
+
+--13 Put 10 space before your name using function
+SELECT SPACE(10)+'AumFaldu';
+
+--14 Combine two strings using + sign as well as CONCAT ().
+SELECT 'Aum'+'Faldu';
+SELECT CONCAT('Aum','Faldu');
+
+--15 Find reverse of ‚ÄúDarshan‚Äù.
+SELECT REVERSE('Darshan');
+
+--16 Repeat your name 3 times
+SELECT REPLICATE('AumFaldu',3);
