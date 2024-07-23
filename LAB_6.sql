@@ -157,3 +157,149 @@ SELECT REVERSE('Darshan');
 
 --16 Repeat your name 3 times
 SELECT REPLICATE('AumFaldu',3);
+
+--PART-B
+
+--1 Find the length of FirstName and LastName columns.
+SELECT LEN(FIRSTNAME),LEN(LASTNAME) FROM STUDENT;
+
+--2 Display FirstName and LastName columns in lower & upper case
+SELECT LOWER(FIRSTNAME),LOWER(LASTNAME),UPPER(FIRSTNAME),UPPER(LASTNAME) FROM STUDENT;
+
+--3 Display first three characters of FirstName column.
+SELECT SUBSTRING(FIRSTNAME,0,4) FROM STUDENT;
+
+--4 Display 3rd to 10th character of Website column
+SELECT SUBSTRING(WEBSITE,3,8) FROM STUDENT;
+
+--5 Write a query to display first 4 & Last 5 characters of Website column
+SELECT LEFT(WEBSITE,4)+RIGHT(WEBSITE,5) FROM STUDENT;
+
+--PART-C
+
+--1 Put 10 space before FirstName using function.
+SELECT SPACE(10)+FIRSTNAME FROM STUDENT;
+
+--2 Combine FirstName and LastName columns using + sign as well as CONCAT ().
+SELECT FIRSTNAME+LASTNAME FROM STUDENT;
+SELECT CONCAT(FIRSTNAME,LASTNAME) FROM STUDENT;
+
+--3 Combine all columns using + sign as well as CONCAT ().
+SELECT CAST(STUID AS VARCHAR(50))+FIRSTNAME+LASTNAME+WEBSITE+CITY+ADDRESS FROM STUDENT;
+SELECT CONCAT(STUID,FIRSTNAME,LASTNAME,WEBSITE,CITY,ADDRESS) FROM STUDENT;
+
+--4  Find reverse of FirstName column.
+SELECT REVERSE(FIRSTNAME) FROM STUDENT;
+
+--5 Repeat FirstName column 3 times
+SELECT REPLICATE(FIRSTNAME,3) FROM STUDENT;
+
+--6 Give the Names which contains 5 characters.
+SELECT FIRSTNAME FROM STUDENT
+WHERE LEN(FIRSTNAME) = 5;
+
+--7 Combine the result as <FirstName> Lives in <City>
+SELECT CONCAT_WS(' ',FIRSTNAME,'Lives in',CITY) FROM STUDENT;
+
+--8 Combine the result as Student_ID of < FirstName > is <StuID> .
+SELECT CONCAT_WS(' ','Student_ID','of',FIRSTNAME,'is',STUID) FROM STUDENT;
+
+--Date Functions
+
+--PART-A
+
+--1 Write a query to display the current date & time. Label the column Today_Date
+SELECT GETDATE() AS Today_Date;
+
+--2 Write a query to find new date after 365 day with reference to today.
+SELECT DATEADD(DAY,365,GETDATE());
+
+--3 Display the current date in a format that appears as may 5 1994 12:00AM.
+SELECT FORMAT(GETDATE(),'MMMM d yyyy hh:mmtt');
+
+--4 Display the current date in a format that appears as 03 Jan 1995.
+SELECT FORMAT(GETDATE(),'dd MMMM yyyy');
+
+--5 Display the current date in a format that appears as Jan 04, 96.
+SELECT FORMAT(GETDATE(),'MMMM dd, yy');
+
+--6 Write a query to find out total number of months between 31-Dec-08 and 31-Mar-09
+SELECT DATEDIFF(MONTH,'2008-12-31','2009-03-31');
+
+--7 Write a query to find out total number of years between 25-Jan-12 and 14-Sep-10.
+SELECT DATEDIFF(YEAR,'2012-08-25','2010-09-14');
+
+--8 Write a query to find out total number of hours between 25-Jan-12 7:00 and 26-Jan-12 10:30.
+SELECT DATEDIFF(HOUR,'2012-01-25 7:00','2012-01-26 10:30');
+
+--9 Write a query to extract Day, Month, Year from given date 12-May-16.
+SELECT DAY('2016-05-12'),MONTH('2016-05-12'),YEAR('2016-05-12');
+
+--10 Write a query that adds 5 years to current date.
+SELECT DATEADD(YEAR,5,GETDATE());
+
+--11 Write a query to subtract 2 months from current date.
+SELECT DATEADD(MONTH,-2,GETDATE());
+
+--12  Extract month from current date using datename () and datepart () function.
+SELECT DATENAME(MONTH,GETDATE());
+SELECT DATEPART(MONTH,GETDATE());
+
+--13 Write a query to find out last date of current month.
+SELECT EOMONTH(GETDATE());
+
+--14 . Calculate your age in years and months
+SELECT DATEDIFF(MONTH,'2004-10-01',GETDATE());
+SELECT DATEDIFF(YEAR,'2004-10-01',GETDATE());
+
+--PART-B
+CREATE TABLE EMP_DETAIL(
+	EmpNo int,
+	EmpName varchar(50),
+	JoiningDate datetime,
+	Salary decimal(7,2),
+	City varchar(50)
+);
+INSERT INTO EMP_DETAIL(EmpNo,EmpName,JoiningDate,Salary,City) VALUES 
+(101,'Keyur','2002-01-15',12000.00,'Rajkot'),
+(102,'Hardik','2004-02-15',14000.00,'Ahmedabad'),
+(103,'Kajal','2006-03-14',15000.00,'Baroda'),
+(104,'Bhoomi','2005-06-23',12500.00,'Ahmedabad'),
+(105,'Harmit','2004-02-15',14000.00,'Rajkot'),
+(106,'Jay','2007-03-12',12000.00,'Surat');
+
+--1 Write a query to find new date after 365 day with reference to JoiningDate.
+SELECT DATEADD(DAY,365,JoiningDate) FROM EMP_DETAIL;
+
+--2 Display the JoiningDate in a format that appears as may 5 1994 12:00AM
+SELECT FORMAT(JOININGDATE,'MMMM d yyyy hh:mmtt') FROM EMP_DETAIL;
+
+--3 Display the JoiningDate in a format that appears as 03 Jan 1995.
+SELECT FORMAT(JOININGDATE,'dd MMM yyyy') FROM EMP_DETAIL;
+
+--4 Display the JoiningDate in a format that appears as Jan 04, 96
+SELECT FORMAT(JOININGDATE,'MMM dd, yy') FROM EMP_DETAIL;
+
+--5 Write a query to find out total number of months between JoiningDate and 31-Mar-09.
+SELECT DATEDIFF(MONTH,JOININGDATE,'2009-03-31') FROM EMP_DETAIL;
+
+--6 Write a query to find out total number of years between JoiningDate and 14-Sep-10
+SELECT DATEDIFF(YEAR,JOININGDATE,'2010-09-14') FROM EMP_DETAIL;
+
+--PART-C
+
+--1 Write a query to extract Day, Month, Year from JoiningDate
+SELECT DAY(JOININGDATE),MONTH(JOININGDATE),YEAR(JOININGDATE) FROM EMP_DETAIL;
+
+--2 Write a query that adds 5 years to JoiningDate.
+SELECT DATEADD(YEAR,5,JOININGDATE) FROM EMP_DETAIL;
+
+--3 Write a query to subtract 2 months from JoiningDate
+SELECT DATEADD(MONTH,-2,JOININGDATE) FROM EMP_DETAIL;
+
+--4 Extract month from JoiningDate using datename () and datepart () function
+SELECT DATENAME(MONTH,JOININGDATE),DATEPART(MONTH,JOININGDATE) FROM EMP_DETAIL;
+
+--5 Calculate your age in years and months
+SELECT DATEDIFF(YEAR,'2004-10-01',GETDATE());
+SELECT DATEDIFF(MONTH,'2004-10-01',GETDATE());
