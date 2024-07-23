@@ -118,7 +118,7 @@ INSERT INTO SALES_DATA(Region,Product,Sales_Amount,Year) VALUES
  --4 Find out region wise duplicate product
  SELECT REGION,Product FROM SALES_DATA
  GROUP BY REGION,PRODUCT
- HAVING COUNT(*) > 1
+ HAVING COUNT(PRODUCT) > 1
 
  --5 Find out region wise highest sales amount.
  SELECT REGION,MAX(SALES_AMOUNT) FROM SALES_DATA
