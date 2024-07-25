@@ -4,7 +4,7 @@ public class Lab_9_50 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter size of Queue : ");
         int size = sc.nextInt();
-        Queue q = new Queue(3);
+        Queue q = new Queue(size);
         String choice = "";
         int data=0;
         while(!choice.equals("-1")){
