@@ -77,16 +77,11 @@ class PriorityQueue {
             return -1;
         }
         
-        // Return the highest priority element
         int highestPriorityElement = arr[0][0];
-        
-        // Shift elements to fill the gap
         for (int i = 0; i < rear; i++) {
             arr[i][0] = arr[i + 1][0];
             arr[i][1] = arr[i + 1][1];
         }
-        
-        // Decrease rear
         rear--;
         
         return highestPriorityElement;
