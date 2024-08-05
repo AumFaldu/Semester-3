@@ -23,9 +23,11 @@ public class Lab_20_94 {
                     min_index=j;
                 }
             }
+            if(min_index!=i){
                 int temp = a[i];
                 a[i] = a[min_index];
                 a[min_index] = temp;
+            }
         }
     }
 }
