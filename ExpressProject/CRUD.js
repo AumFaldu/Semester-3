@@ -26,7 +26,7 @@ app.put('/list/:id',(req,res)=>{
 //Delete
 app.delete('/list/:id',(req,res)=>{
     const index = list.findIndex(li=>li.id==req.params.id);
-    list.splice(id,1);
+    list.splice(index,1);
     res.send('List Deleted');
 });
 const port = 3000;
