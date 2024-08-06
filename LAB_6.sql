@@ -218,10 +218,10 @@ SELECT DATEADD(DAY,365,GETDATE());
 SELECT FORMAT(GETDATE(),'MMMM d yyyy hh:mmtt');
 
 --4 Display the current date in a format that appears as 03 Jan 1995.
-SELECT FORMAT(GETDATE(),'dd MMMM yyyy');
+SELECT FORMAT(GETDATE(),'dd MMM yyyy');
 
 --5 Display the current date in a format that appears as Jan 04, 96.
-SELECT FORMAT(GETDATE(),'MMMM dd, yy');
+SELECT FORMAT(GETDATE(),'MMM dd, yy');
 
 --6 Write a query to find out total number of months between 31-Dec-08 and 31-Mar-09
 SELECT DATEDIFF(MONTH,'2008-12-31','2009-03-31');
