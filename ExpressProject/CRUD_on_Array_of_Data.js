@@ -28,6 +28,12 @@ app.delete('/list/:index',(req,res)=>{
     list.splice(req.params.index,1);
     res.send('List Deleted');
 })
+//SEARCH
+app.get('/list/Search/:value',(req,res)=>{
+    const value = req.params.value;
+    const ans = list.filter(li=>li.includes(value));
+    res.send(ans);
+});
 app.listen(port,(req,res)=>{
     console.log(`Server is listening at ${port}`);
 })
