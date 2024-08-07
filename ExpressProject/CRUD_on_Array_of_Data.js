@@ -15,7 +15,7 @@ app.get('/list/:index',(req,res)=>{
 app.post('/list',(req,res)=>{
     const {List} = req.body
     list.push(List);
-    res.send(List);
+    res.send('List Added');
 })
 //Update
 app.put('/list/:index',(req,res)=>{
