@@ -60,3 +60,122 @@ SELECT NAME FROM STUDENT_DATA WHERE no IN(SELECT RNO FROM ACADEMIC WHERE SPI>9) 
 SELECT NAME FROM STUDENT_DATA WHERE no IN(SELECT Rno FROM ACADEMIC WHERE SPI=(SELECT MAX(SPI) FROM ACADEMIC WHERE SPI<(SELECT MAX(SPI) FROM ACADEMIC)))
 --3 Display city names whose students branch wise SPI is 9.2
 SELECT CITY FROM STUDENT_DATA WHERE no=(SELECT RNO FROM ACADEMIC WHERE SPI=9.2) AND DID IN(SELECT DID FROM DEPARTMENT GROUP BY DID);
+
+--SET OPERATORS
+--PART-A
+CREATE TABLE COMPUTER(
+	RollNo INT,
+	Name VARCHAR(50)
+);
+INSERT INTO COMPUTER(ROLLNO,NAME) VALUES
+(101,'Ajay'),
+(109,'Haresh'),
+(115,'Manish');
+CREATE TABLE ELECTRICAL(
+	RollNo INT,
+	Name VARCHAR(50)
+);
+INSERT INTO ELECTRICAL(ROLLNO,NAME) VALUES
+(105,'Ajay'),
+(107,'Mahesh'),
+(115,'Manish');
+
+--1 . Display name of students who is either in Computer or in Electrical
+SELECT NAME FROM COMPUTER
+UNION
+SELECT NAME FROM ELECTRICAL;
+
+--2 Display name of students who is either in Computer or in Electrical including duplicate data.
+SELECT NAME FROM COMPUTER
+UNION ALL
+SELECT NAME FROM ELECTRICAL
+
+--3 Display name of students who is in both Computer and Electrical.
+SELECT NAME FROM COMPUTER
+INTERSECT
+SELECT NAME FROM ELECTRICAL
+
+--4 Display name of students who are in Computer but not in Electrical
+SELECT NAME FROM COMPUTER
+EXCEPT
+SELECT NAME FROM ELECTRICAL
+
+--5 Display name of students who are in Electrical but not in Computer
+SELECT NAME FROM ELECTRICAL
+EXCEPT
+SELECT NAME FROM COMPUTER
+
+--6 Display all the details of students who are either in Computer or in Electrical
+SELECT * FROM COMPUTER
+UNION
+SELECT * FROM ELECTRICAL
+
+--7 Display all the details of students who are in both Computer and Electrical.
+SELECT * FROM COMPUTER
+INTERSECT
+SELECT * FROM ELECTRICAL
+
+--PART-B
+CREATE TABLE EMP_DATA(
+	EID INT,
+	Name VARCHAR(50)
+);
+INSERT INTO EMP_DATA(EID,Name) VALUES
+(1,'Ajay'),
+(9,'Haresh'),
+(5,'Manish')
+CREATE TABLE CUSTOMER(
+	CID INT,
+	Name VARCHAR(50) 
+);
+INSERT INTO CUSTOMER(CID,Name) VALUES
+(5,'Ajay'),
+(7,'Mahesh'),
+(5,'Manish')
+
+--1 Display name of persons who is either Employee or Customer
+SELECT NAME FROM EMP_DATA
+UNION 
+SELECT NAME FROM CUSTOMER
+
+--2 Display name of persons who is either Employee or Customer including duplicate data.
+SELECT NAME FROM EMP_DATA
+UNION ALL
+SELECT NAME FROM CUSTOMER
+
+--3 Display name of persons who is both Employee as well as Customer
+SELECT NAME FROM EMP_DATA
+INTERSECT
+SELECT NAME FROM CUSTOMER
+
+--4 Display name of persons who are Employee but not Customer.
+SELECT NAME FROM EMP_DATA
+EXCEPT
+SELECT NAME FROM CUSTOMER
+
+--5 Display name of persons who are Customer but not Employee.
+SELECT NAME FROM CUSTOMER
+EXCEPT
+SELECT NAME FROM EMP_DATA
+
+--PART-C
+--1 Perform all the queries of Part-B but display ID and Name columns instead of Name only.
+SELECT * FROM EMP_DATA
+UNION 
+SELECT * FROM CUSTOMER
+
+SELECT * FROM EMP_DATA
+UNION ALL
+SELECT * FROM CUSTOMER
+
+SELECT * FROM EMP_DATA
+INTERSECT
+SELECT * FROM CUSTOMER
+
+SELECT * FROM EMP_DATA
+EXCEPT
+SELECT * FROM CUSTOMER
+
+SELECT * FROM CUSTOMER
+EXCEPT
+SELECT * FROM EMP_DATA
