@@ -85,4 +85,11 @@ UPDATE VW_Result_EC
 SET SPI=4.90
 WHERE NAME='MAHESH'
 
---3 Create a view Stu_Bklog with RNo, Name and Bklog columns in which name starts with ‘M’ and having bklogs more than 5.CREATE VIEW VW_Stu_BklogAS SELECT RNo,Name,Bklog FROM STUDENT_INFOWHERE NAME LIKE 'M%' AND BKLOG>5--4 Drop Computerview form the databaseDROP VIEW VW_COMPUTERVIEW
+--3 Create a view Stu_Bklog with RNo, Name and Bklog columns in which name starts with â€˜Mâ€™ and having bklogs more than 5.
+CREATE VIEW VW_Stu_Bklog
+AS SELECT RNo,Name,Bklog FROM STUDENT_INFO
+WHERE NAME LIKE 'M%' AND BKLOG>5
+
+--4 Drop Computerview form the database
+DROP VIEW VW_COMPUTERVIEW
+
