@@ -15,7 +15,7 @@ mongoose.connect(connectionString).then(()=>{
     app.post('/add',async (req,res)=>{
         const {id,Name,Class,RollNo} = req.body;        
         const ans = await model.create({...req.body});
-        res.send(ans);
+        res.send('Added Successfully');
     });
     //GetXByParameter
     app.get('/one/:id',async (req,res)=>{
@@ -27,7 +27,16 @@ mongoose.connect(connectionString).then(()=>{
         const data = await model.findById(req.params.findId);
         res.send(data);
     })
-    //
+    //Update
+    app.put('/:id',async (req,res)=>{
+        await model.findOneAndUpdate({ id: req.params.id }, req.body, { new: true });
+        res.send('Updated Successfully');
+    });
+    //Delete
+    app.delete('/:id',async (req,res)=>{
+        await model.deleteOne({id:req.params.id});
+        res.send('Deleted Successfully')
+    });
     const port = 5000;
     app.listen(port,(req,res)=>{
         console.log(`Server is listening at ${port}`);
