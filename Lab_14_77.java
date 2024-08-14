@@ -2,22 +2,18 @@ import java.util.Scanner;
 
 public class Lab_14_77 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); // Initialize Scanner
+        Scanner sc = new Scanner(System.in);
 
-        BinaryTree bt = new BinaryTree(); // Create BinaryTree instance
+        BinaryTree bt = new BinaryTree();
 
         System.out.println("Enter root element: ");
         int rootData = sc.nextInt();
         bt.root = new Node(rootData);
-
-        // Build the tree with user input
-        buildTree(bt.root, sc);
-
-        // Display the tree
+        insert(bt.root, sc);
         bt.display();
     }
 
-    private static void buildTree(Node node, Scanner sc) {
+    private static void insert(Node node, Scanner sc) {
         if (node == null) return;
 
         while (true) {
@@ -30,16 +26,16 @@ public class Lab_14_77 {
                 if (node.left == null) {
                     node.left = new Node(leftData);
                 }
-                buildTree(node.left, sc); // Recursively build the left subtree
+                insert(node.left, sc);
             } else if (choice == 2) {
                 System.out.println("Enter data for the right child of node " + node.data + ": ");
                 int rightData = sc.nextInt();
                 if (node.right == null) {
                     node.right = new Node(rightData);
                 }
-                buildTree(node.right, sc); // Recursively build the right subtree
+                insert(node.right, sc);
             } else if (choice == -1) {
-                break; // Stop adding children
+                break;
             }
         }
     }
