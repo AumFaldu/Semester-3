@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Lab_14_79 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = new String();
         int data;
         BinarySearchTree bst1 = new BinarySearchTree();
         System.out.println("BST1:");
