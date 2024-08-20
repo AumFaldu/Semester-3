@@ -1,5 +1,4 @@
---New Database
-?GO
+﻿GO
 /****** Object:  Table [dbo].[CUSTOMER2]    Script Date: 14-08-2024 13:11:10 ******/
 SET ANSI_NULLS ON
 GO
@@ -79,3 +78,64 @@ INSERT [dbo].[SALESMAN] ([salesman_id], [name], [city], [commission]) VALUES (50
 INSERT [dbo].[SALESMAN] ([salesman_id], [name], [city], [commission]) VALUES (5006, N'Mc Lyon', N'Paris', CAST(0.14 AS Decimal(4, 2)))
 INSERT [dbo].[SALESMAN] ([salesman_id], [name], [city], [commission]) VALUES (5007, N'Paul Adam', N'Rome', CAST(0.13 AS Decimal(4, 2)))
 INSERT [dbo].[SALESMAN] ([salesman_id], [name], [city], [commission]) VALUES (5003, N'Lauson Hen', N'San Jose', CAST(0.12 AS Decimal(4, 2)))
+
+--From the above given tables perform the following SQL queries (Join):
+--1. Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman,
+--cust_name and city.
+SELECT salesman.name,customer2.cust_name,salesman.CITY FROM SALESMAN CROSS JOIN CUSTOMER2
+--2. Write a SQL query to find those orders where the order amount exists between 500 and 2000. Return ord_no,
+--purch_amt, cust_name, city.
+SELECT o.ord_no,o.purch_amt,c.cust_name,s.city FROM ORDERS AS o INNER JOIN CUSTOMER2 AS c
+--3. Write a SQL query to find the salesperson(s) and the customer(s) he represents. Return Customer Name,
+--city, Salesman, commission.
+--4. Write a SQL query to find salespeople who received commissions of more than 12 percent from the
+--company. Return Customer Name, customer city, Salesman, commission.
+--5. Write a SQL query to locate those salespeople who do not live in the same city where their customers live
+--and have received a commission of more than 12% from the company. Return Customer Name, customer
+--city, Salesman, salesman city, commission.
+--6. Write a SQL query to find the details of an order. Return ord_no, ord_date, purch_amt, Customer Name, grade,
+--Salesman, commission.
+--7. Write a SQL statement to join the tables salesman, customer and orders so that the same column of each
+--table appears once and only the relational rows are returned.
+--8. Write a SQL query to display the customer name, customer city, grade, salesman, salesman city. The results
+--should be sorted by ascending customer_id.
+--9. Write a SQL query to find those customers with a grade less than 300. Return cust_name, customer city,
+--grade, Salesman, salesmancity. The result should be ordered by ascending customer_id. 
+--10. Write a SQL statement to make a report with customer name, city, order number, order date, and order
+--amount in ascending order according to the order date to determine whether any of the existing customers
+--have placed an order or not.
+
+
+
+-------------Part B -----------
+
+--1. Write a SQL statement to generate a report with customer name, city, order number, order date, order amount, salesperson name, and commission to determine if any of the existing customers have not placed orders or if they have placed orders through their salesman or by themselves.
+SELECT C.CUST_NAME,C.CITY,O.ORD_DATE,O.ORD_NO,O.PURCH_AMT,S.NAME,S.COMMISSION FROM CUSTOMER2 AS C
+LEFT JOIN ORDERS AS O
+ON C.SALESMAN_ID=O.SALESMAN_ID
+INNER JOIN SALESMAN AS S
+ON C.SALESMAN_ID=S.SALESMAN_ID;
+--2. Write a SQL statement to generate a list in ascending order of salespersons who work either for one or more customers or have not yet joined any of the customers.
+SELECT S.NAME,COUNT(S.SALESMAN_ID) FROM SALESMAN AS S RIGHT JOIN CUSTOMER2 AS C ON S.SALESMAN_ID=C.SALESMAN_ID
+GROUP BY S.NAME
+ORDER BY COUNT(S.SALESMAN_ID);
+3. Write a SQL query to list all salespersons along with customer name, city, grade, order number, date, and
+amount.
+4. Write a SQL statement to make a list for the salesmen who either work for one or more customers or yet to
+join any of the customer. The customer may have placed, either one or more orders on or above order
+amount 2000 and must have a grade, or he may not have placed any order to the associated supplier.
+5. For those customers from the existing list who put one or more orders, or which orders have been placed by
+the customer who is not on the list, create a report containing the customer name, city, order number, order
+date, and purchase amount.
+6. Write a SQL statement to generate a report with the customer name, city, order no. order date, purchase
+amount for only those customers on the list who must have a grade and placed one or more orders or which
+order(s) have been placed by the customer who neither is on the list nor has a grade.
+7. Write a SQL query to combine each row of the salesman table with each row of the customer table.
+8. Write a SQL statement to create a Cartesian product between salesperson and customer, i.e. each
+salesperson will appear for all customers and vice versa for that salesperson who belongs to that city.
+9. Write a SQL statement to create a Cartesian product between salesperson and customer, i.e. each
+salesperson will appear for every customer and vice versa for those salesmen who belong to a city and
+customers who require a grade.
+10. Write a SQL statement to make a Cartesian product between salesman and customer i.e. each salesman
+will appear for all customers and vice versa for those salesmen who muust belong to a city which is not the
+same as his customer and the customers should have their own grade.
