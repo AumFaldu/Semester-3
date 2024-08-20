@@ -39,4 +39,40 @@ INSERT INTO EMPLOYEE_MASTER(EmployeeNo,Name,ManagerNo) VALUES
 --1 Combine information from student and result table using cross join or Cartesian product
 SELECT * FROM STU_INFO CROSS JOIN RESULT;
 
---2 Perform inner join on Student and Result tables.SELECT * FROM STU_INFO INNER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;--3  Perform the left outer join on Student and Result tablesSELECT * FROM STU_INFO LEFT OUTER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;--4 Perform the right outer join on Student and Result tables.SELECT * FROM STU_INFO RIGHT OUTER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;--5 Perform the full outer join on Student and Result tables. SELECT * FROM STU_INFO FULL OUTER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;--6 Display Rno, Name, Branch and SPI of all studentsSELECT S.Rno,Name,Branch,R.SPI FROM STU_INFO AS S LEFT JOIN RESULT AS R ON S.Rno=R.Rno;--7 Display Rno, Name, Branch and SPI of CE branch’s student onlySELECT S.Rno,Name,Branch,R.SPI FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno WHERE S.BRANCH='CE';--8 Display Rno, Name, Branch and SPI of other than EC branch’s student only.SELECT S.Rno,Name,Branch,R.SPI FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno WHERE S.BRANCH != 'EC';--9 Display average result of each branchSELECT BRANCH,AVG(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno GROUP BY S.BRANCH;--10 Display average result of CE and ME branchSELECT BRANCH,AVG(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno WHERE S.BRANCH IN ('CE','ME') GROUP BY S.BRANCH;--PART-B--1 Display average result of each branch and sort them in ascending order by SPI.SELECT BRANCH,AVG(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno GROUP BY BRANCH ORDER BY AVG(SPI);--2 Display highest SPI from each branch and sort them in descending order.SELECT BRANCH,MAX(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno GROUP BY BRANCH ORDER BY MAX(SPI) DESC;--PART-C--1 Retrieve the names of employee along with their manager’s name from the Employee table.SELECT E1.NAME,E2.NAME FROM EMPLOYEE_MASTER E1 INNER JOIN EMPLOYEE_MASTER E2 ON E1.MANAGERNO=E2.EMPLOYEENO;
+--2 Perform inner join on Student and Result tables.
+SELECT * FROM STU_INFO INNER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;
+
+--3  Perform the left outer join on Student and Result tables
+SELECT * FROM STU_INFO LEFT OUTER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;
+
+--4 Perform the right outer join on Student and Result tables.
+SELECT * FROM STU_INFO RIGHT OUTER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;
+
+--5 Perform the full outer join on Student and Result tables. 
+SELECT * FROM STU_INFO FULL OUTER JOIN RESULT ON STU_INFO.Rno=RESULT.Rno;
+
+--6 Display Rno, Name, Branch and SPI of all students
+SELECT S.Rno,Name,Branch,R.SPI FROM STU_INFO AS S LEFT JOIN RESULT AS R ON S.Rno=R.Rno;
+
+--7 Display Rno, Name, Branch and SPI of CE branchâ€™s student only
+SELECT S.Rno,Name,Branch,R.SPI FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno WHERE S.BRANCH='CE';
+
+--8 Display Rno, Name, Branch and SPI of other than EC branchâ€™s student only.
+SELECT S.Rno,Name,Branch,R.SPI FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno WHERE S.BRANCH != 'EC';
+
+--9 Display average result of each branch
+SELECT BRANCH,AVG(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno GROUP BY S.BRANCH;
+
+--10 Display average result of CE and ME branch
+SELECT BRANCH,AVG(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno WHERE S.BRANCH IN ('CE','ME') GROUP BY S.BRANCH;
+
+--PART-B
+--1 Display average result of each branch and sort them in ascending order by SPI.
+SELECT BRANCH,AVG(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno GROUP BY BRANCH ORDER BY AVG(SPI);
+
+--2 Display highest SPI from each branch and sort them in descending order.
+SELECT BRANCH,MAX(SPI) FROM STU_INFO AS S INNER JOIN RESULT AS R ON S.Rno=R.Rno GROUP BY BRANCH ORDER BY MAX(SPI) DESC;
+
+--PART-C
+--1 Retrieve the names of employee along with their managerâ€™s name from the Employee table.
+SELECT E1.NAME,E2.NAME FROM EMPLOYEE_MASTER E1 INNER JOIN EMPLOYEE_MASTER E2 ON E1.MANAGERNO=E2.EMPLOYEENO;
