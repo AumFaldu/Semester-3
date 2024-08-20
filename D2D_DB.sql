@@ -1,3 +1,4 @@
+--New Database
 ?GO
 /****** Object:  Table [dbo].[CUSTOMER2]    Script Date: 14-08-2024 13:11:10 ******/
 SET ANSI_NULLS ON
