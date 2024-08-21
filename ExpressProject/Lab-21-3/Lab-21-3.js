@@ -46,7 +46,6 @@ mongoose.connect(connectionString).then(()=>{
         })
         res.send(ans);
         })
-    const port = 5000;
     app.listen(process.env.PORT,(req,res)=>{
         console.log(`Server is listening at ${process.env.PORT}`);
     })
