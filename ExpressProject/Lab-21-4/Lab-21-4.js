@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 app.use(express.json())
+require('dotenv').config();
 const model = require('./model');
-const connectionString  = "mongodb+srv://AumFaldu:Aum@cluster0.0w7pb.mongodb.net/Demo";
+const connectionString  = "mongodb+srv://"+process.env.DB_UserName+":"+process.env.DB_Password+"@cluster0.0w7pb.mongodb.net/Demo";
 mongoose.connect(connectionString).then(()=>{
     console.log('MongoDB Connected');
     //GetAll
@@ -46,8 +47,7 @@ mongoose.connect(connectionString).then(()=>{
         })
         res.send(ans);
         })
-    const port = 5000;
-    app.listen(port,(req,res)=>{
-        console.log(`Server is listening at ${port}`);
+    app.listen(process.env.PORT,(req,res)=>{
+        console.log(`Server is listening at ${process.env.PORT}`);
     })
 });
