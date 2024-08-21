@@ -37,6 +37,15 @@ mongoose.connect(connectionString).then(()=>{
         await model.deleteOne({id:req.params.id});
         res.send('Deleted Successfully')
     });
+    //Search
+    app.get('/search/:s',async (req,res)=>{
+        const ans = await model.find({
+            Name:{
+                $regex : req.params.s
+            }
+        })
+        res.send(ans);
+        })
     const port = 5000;
     app.listen(port,(req,res)=>{
         console.log(`Server is listening at ${port}`);
