@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 app.use(express.json())
+require('dotenv').config();
 const model = require('./model');
 const connectionString  = "mongodb+srv://"+process.env.DB_UserName+":"+process.env.DB_Password+"@cluster0.0w7pb.mongodb.net/Demo";
 mongoose.connect(connectionString).then(()=>{
