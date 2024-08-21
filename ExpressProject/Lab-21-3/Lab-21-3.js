@@ -28,7 +28,7 @@ mongoose.connect(connectionString).then(()=>{
         res.send(data);
     })
     //Update
-    app.put('/:id',async (req,res)=>{
+    app.patch('/:id',async (req,res)=>{
         await model.findOneAndUpdate({ id: req.params.id }, req.body, { new: true });
         res.send('Updated Successfully');
     });
