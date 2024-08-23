@@ -3,76 +3,87 @@ import java.util.Scanner;
 public class ArrayToTree {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of array: ");
+        System.out.print("Enter the size of the array: ");
         int n = sc.nextInt();
+        
+        if (n <= 0) {
+            System.out.println("Invalid array size. Must be greater than 0.");
+            return;
+        }
+
         int[] arr = new int[n];
+        
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter value of element at index " + i + ": ");
+            System.out.println("Enter value of arr[" + i + "] : ");
             arr[i] = sc.nextInt();
         }
 
-        Tree tree = new Tree();
-        for (int i = 0; i < n; i++) {
-            tree.insertNode(arr[i], i);
-        }
+        BinaryTree bt = new BinaryTree();
+        bt.root = bt.insert(arr, 0);
 
-        System.out.println("In-order Traversal of the Binary Tree:");
-        tree.inorder();
+        System.out.println("Preorder traversal of the binary tree:");
+        bt.preorder(bt.root);
+        System.out.println("\nInorder traversal of the binary tree:");
+        bt.inorder(bt.root);
+        System.out.println("\nPostorder traversal of the binary tree:");
+        bt.postorder(bt.root);
+
+        sc.close();
     }
 }
 
 class Node {
-    Node lptr = null;
-    Node rptr = null;
     int data;
+    Node left;
+    Node right;
 
     Node(int data) {
         this.data = data;
+        left = right = null;
     }
 }
 
-class Tree {
-    Node root = null;
+class BinaryTree {
+    Node root;
 
-    public void insertNode(int val, int index) {
-        Node newNode = new Node(val);
+    BinaryTree() {
+        root = null;
+    }
+
+    Node insert(int[] arr, int i) {
+        Node node = null;
+        if (i < arr.length) {
+            node = new Node(arr[i]);
+            node.left = insert(arr, 2 * i + 1);
+            node.right = insert(arr, 2 * i + 2);
+        }
+        return node;
+    }
+
+    void preorder(Node root) {
         if (root == null) {
-            root = newNode;
-        } else {
-            insertAtIndex(root, newNode, index, 0);
-        }
-    }
-
-    private void insertAtIndex(Node curr, Node newNode, int targetIndex, int currentIndex) {
-        if (curr == null) {
             return;
         }
-        if (currentIndex == targetIndex) {
-            if (curr.lptr == null) {
-                curr.lptr = newNode;
-            } else if (curr.rptr == null) {
-                curr.rptr = newNode;
-            }
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    void inorder(Node root) {
+        if (root == null) {
             return;
         }
-        if (curr.lptr != null) {
-            insertAtIndex(curr.lptr, newNode, targetIndex, 2 * currentIndex + 1);
-        }
-        if (curr.rptr != null) {
-            insertAtIndex(curr.rptr, newNode, targetIndex, 2 * currentIndex + 2);
-        }
+        inorder(root.left);
+        System.out.print(root.data + " ");
+        inorder(root.right);
     }
 
-    public void inorder() {
-        inorderRec(root);
-        System.out.println();
-    }
-
-    private void inorderRec(Node node) {
-        if (node != null) {
-            inorderRec(node.lptr);
-            System.out.print(node.data + " ");
-            inorderRec(node.rptr);
+    void postorder(Node root) {
+        if (root == null) {
+            return;
         }
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data + " ");
     }
 }
