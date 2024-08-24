@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Lab_14_79 {
@@ -14,7 +13,7 @@ public class Lab_14_79 {
             if(data == -1) break;
             bst1.insert(data);
         }
-        data=0;
+        
         BinarySearchTree bst2 = new BinarySearchTree();
         System.out.println("BST2:");
         while (true) { 
@@ -24,59 +23,56 @@ public class Lab_14_79 {
             if(data == -1) break;
             bst2.insert(data);
         }
-        if(bst1.equals(bst2)){
+
+        if(isSameTree(bst1.root, bst2.root)){
             System.out.println("BST1 and BST2 are equal");
         }
         else{
             System.out.println("BST1 and BST2 are not equal");
         }
+        
+        sc.close();
+    }
+    private static boolean isSameTree(Node root1, Node root2) {
+        if(root1 == null && root2 == null) {
+            return true;
+        } else if(root1 == null || root2 == null) {
+            return false;
+        } else if(root1.key == root2.key) {
+            return isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right);
+        }
+        return false;
     }
 }
-class Node{
+
+class Node {
     int key;
     Node left;
     Node right;
-    Node(int data){
+    
+    Node(int data) {
         key = data;
         left = null;
         right = null;
     }
 }
-class BinarySearchTree{
+
+class BinarySearchTree {
     Node root;
-    void insert(int data){
-        root = insertRecord(root,data);
+    
+    void insert(int data) {
+        root = insertRecord(root, data);
     }
-    Node insertRecord(Node root,int data){
-        if(root==null){
+    
+    Node insertRecord(Node root, int data) {
+        if(root == null) {
             return new Node(data);
         }
-        if(data<root.key){
-            root.left = insertRecord(root.left,data);
-        }
-        else if(data>root.key){
-            root.right = insertRecord(root.right,data);
+        if(data < root.key) {
+            root.left = insertRecord(root.left, data);
+        } else if(data > root.key) {
+            root.right = insertRecord(root.right, data);
         }
         return root;
-    }
-    void inorderRecord(Node root){
-        if(root==null){
-            return;
-        }
-        inorderRecord(root.left);
-        System.out.println(root.key+" ");
-        inorderRecord(root.right);
-    }
-    boolean equals(BinarySearchTree bst2){
-        return equalsRecord(this.root,bst2.root);
-    }
-    boolean equalsRecord(Node node1,Node node2){
-        if(node1 == null && node2 == null){
-            return true;
-        }
-        if(node1!=null && node2!=null){
-            return (node1.key == node2.key) && equalsRecord(node1.left,node2.left) && equalsRecord(node1.right,node2.right);
-        }
-        return false;
     }
 }
