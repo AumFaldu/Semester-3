@@ -5,4 +5,4 @@ const schema = mongoose.Schema({
     Class:String,
     RollNo:Number
 });
-module.exports = mongoose.model('Students',schema);
+module.exports = mongoose.model('Student',schema);
