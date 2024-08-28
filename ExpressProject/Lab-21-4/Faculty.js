@@ -4,4 +4,4 @@ const schema = mongoose.Schema({
     Name:String,
     Subject:String,
 });
-module.exports = mongoose.model('Faculties',schema);
+module.exports = mongoose.model('Faculty',schema);
