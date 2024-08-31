@@ -36,7 +36,7 @@ public class Lab_20_95{
             count[(arr[i]/place)%10]--;
         }
         for(int i=0;i<n;i++){
-        arr[i] = output[i];
+            arr[i] = output[i];
         }
     }
     private static int getMax(int[] arr,int n){
