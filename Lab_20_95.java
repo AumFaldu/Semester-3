@@ -5,7 +5,6 @@ public class Lab_20_95{
         System.out.print("Enter total number of elements : ");
         int n = sc.nextInt();
         int[] arr = new int[n];
-        int max=0;
         for(int i=0;i<n;i++){
             System.out.println("Enter value of arr["+i+"] : ");
             arr[i] = sc.nextInt();
