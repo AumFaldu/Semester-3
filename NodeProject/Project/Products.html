@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            color: #f00;
+        }
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            display: flex;
+        }
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .product-details {
+            flex: 1;
+        }
+        .product-details h2 {
+            margin-top: 0;
+        }
+        .product-details p {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Products</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <div class="product-details">
+                <h2>Product 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lectus eget felis fermentum blandit.</p>
+                <p><strong>Price:</strong> $19.99</p>
+                <p><strong>Available Colors:</strong> Red, Blue, Green</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product 2">
+            <div class="product-details">
+                <h2>Product 2</h2>
+                <p>Nullam eget nulla sed odio eleifend placerat vel in dui.</p>
+                <p><strong>Price:</strong> $24.99</p>
+                <p><strong>Available Sizes:</strong> Small, Medium, Large</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product 3">
+            <div class="product-details">
+                <h2>Product 3</h2>
+                <p>Proin sit amet justo sed diam posuere tincidunt sed ac ligula.</p>
+                <p><strong>Price:</strong> $29.99</p>
+                <p><strong>Available Styles:</strong> Modern, Classic</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
