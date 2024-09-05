@@ -11,15 +11,14 @@ public class Lab_22_98 {
             System.out.println("Enter value of arr["+i+"]");
             arr[i] = sc.nextInt();
         }
-        heapSort(arr);
+        heapSort(arr,n);
         System.out.println("Sorted array is:");
         for(int num:arr){
             System.out.print(num+" ");
         }
     }
-    private static void heapSort(int[] arr){
-        int n=arr.length;
-        buildMaxHeap(arr);
+    private static void heapSort(int[] arr,int n){
+        buildMaxHeap(arr,n);
         for(int i=n-1;i>=0;i--){
             int temp=arr[0];
             arr[0]=arr[i];
@@ -27,8 +26,7 @@ public class Lab_22_98 {
             heapify(arr,i,0);
         }
     }
-    private static void buildMaxHeap(int[] arr){
-        int n=arr.length;
+    private static void buildMaxHeap(int[] arr,int n){
         for(int i=n/2-1;i>=0;i--){
             heapify(arr,n,i);
         }
