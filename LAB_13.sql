@@ -202,5 +202,7 @@ INSERT INTO Emp_INFO (Eid, Ename, Did, Cid, Salary, Experience) VALUES
 (4, 'Alice Brown', 4, 4, 45000.00, 2),
 (5, 'Bob Green', 5, 5, 40000.00, 4);
 
+SELECT E.Ename,D.Dname,E.Salary,E.Experience,Ci.Cname,Di.Dname,St.Sname,C.Cname FROM Emp_INFO AS E JOIN Dept_INFO AS D
+ON E.Did=D.Did JOIN City_INFO AS Ci ON E.Cid=Ci.Cid JOIN District_INFO AS Di ON E.Did=Di.Did JOIN State_INFO AS St ON Di.Sid=St.Sid JOIN Country_INFO AS C ON E.Cid=C.Cid;
 
 
