@@ -26,9 +26,9 @@ public class Lab_21_97{
             while(flag==true){
                 i=i+1;
                 while (arr[i]<key) { 
-                    i=i+1;
-                    j=j-1;        
+                    i=i+1;        
                 }
+                j=j-1;
                 while(arr[j]>key){
                     j=j-1;
                 }
