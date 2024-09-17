@@ -45,11 +45,9 @@ SELECT C.Name,COUNT(V.Name) FROM CITY AS C LEFT JOIN VILLAGE AS V ON C.CityID=V.
 SELECT C.Name,COUNT(V.Name) FROM CITY AS C INNER JOIN VILLAGE AS V ON C.CityID=V.CityID GROUP BY C.Name
 
 --6 Count the number of cities having more than one village
-SELECT COUNT(DISTINCT c.CityID)
-FROM CITY c
-JOIN Village v ON c.CityID = v.CityID
-GROUP BY c.CityID
-HAVING COUNT(v.VID) > 1;
+SELECT COUNT(*) FROM CITY AS C WHERE C.NAME IN (
+SELECT c.Name FROM CITY AS C INNER JOIN VILLAGE AS V ON C.CityID=V.CityID GROUP BY c.Name HAVING COUNT(V.Name)>1
+)
 
 --Create below table with following constraints
 CREATE TABLE STU_MASTER(
