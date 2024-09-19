@@ -28,7 +28,6 @@ class HashTable{
         return x%18+2;
     }
     void linearProbing(int index,int value){
-        int startIndex=index;
         while(arr[index]!=0){
         index=(index+1)%20;
         }
