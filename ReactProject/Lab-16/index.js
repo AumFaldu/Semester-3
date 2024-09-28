@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, Layout, Faculty, DetailFaculty } from "./Lab_16_2";
+import { Home, Layout, Faculty, DetailFaculty } from "./Lab_16";
 import AddFaculty from "./AddMockApi";
 import EditFaculty from "./EditMockApi";
 const rootElement = document.getElementById("root");
